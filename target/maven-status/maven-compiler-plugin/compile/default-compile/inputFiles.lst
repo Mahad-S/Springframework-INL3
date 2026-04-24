@@ -1,0 +1,16 @@
+C:\Users\mahad\IdeaProjects\CRM System\src\main\java\se\yrgo\client\SimpleClient.java
+C:\Users\mahad\IdeaProjects\CRM System\src\main\java\se\yrgo\dataaccess\ActionDao.java
+C:\Users\mahad\IdeaProjects\CRM System\src\main\java\se\yrgo\dataaccess\ActionDaoJdbcImpl.java
+C:\Users\mahad\IdeaProjects\CRM System\src\main\java\se\yrgo\dataaccess\CustomerDao.java
+C:\Users\mahad\IdeaProjects\CRM System\src\main\java\se\yrgo\dataaccess\CustomerDaoJdbcTemplateImpl.java
+C:\Users\mahad\IdeaProjects\CRM System\src\main\java\se\yrgo\dataaccess\RecordNotFoundException.java
+C:\Users\mahad\IdeaProjects\CRM System\src\main\java\se\yrgo\domain\Action.java
+C:\Users\mahad\IdeaProjects\CRM System\src\main\java\se\yrgo\domain\Call.java
+C:\Users\mahad\IdeaProjects\CRM System\src\main\java\se\yrgo\domain\Customer.java
+C:\Users\mahad\IdeaProjects\CRM System\src\main\java\se\yrgo\services\CallHandlingServiceImpl.java
+C:\Users\mahad\IdeaProjects\CRM System\src\main\java\se\yrgo\services\calls\CallHandlingService.java
+C:\Users\mahad\IdeaProjects\CRM System\src\main\java\se\yrgo\services\customers\CustomerManagementMockImpl.java
+C:\Users\mahad\IdeaProjects\CRM System\src\main\java\se\yrgo\services\customers\CustomerManagementService.java
+C:\Users\mahad\IdeaProjects\CRM System\src\main\java\se\yrgo\services\customers\CustomerNotFoundException.java
+C:\Users\mahad\IdeaProjects\CRM System\src\main\java\se\yrgo\services\diary\DiaryManagementService.java
+C:\Users\mahad\IdeaProjects\CRM System\src\main\java\se\yrgo\services\diary\DiaryManagementServiceMockImpl.java

@@ -1,10 +1,8 @@
 package se.yrgo.dataaccess;
 
-public class RecordNotFoundException extends Exception {
+public class RecordNotFoundException extends RuntimeException {
 
-	/**
-	 * Just to stop warnings.
-	 */
-	private static final long serialVersionUID = 1L;
-
+    public RecordNotFoundException(String message) {
+        super(message);
+    }
 }

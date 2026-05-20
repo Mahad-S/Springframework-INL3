@@ -13,7 +13,6 @@
     <context:component-scan base-package="se.yrgo"/>
 
     <aop:aspectj-autoproxy/>
-    <tx:annotation-driven/>
 
     <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
         <property name="driverClassName" value="org.hsqldb.jdbcDriver"/>
@@ -22,7 +21,22 @@
         <property name="password" value=""/>
     </bean>
 
-    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+    <bean id="dataSourceInitializer"
+          class="org.springframework.jdbc.datasource.init.DataSourceInitializer">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="databasePopulator">
+            <bean class="org.springframework.jdbc.datasource.init.ResourceDatabasePopulator">
+                <property name="scripts">
+                    <list>
+                        <value>classpath:schema.sql</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="jdbcTemplate"
+          class="org.springframework.jdbc.core.JdbcTemplate">
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
@@ -31,7 +45,8 @@
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
-    <bean id="performanceTimingAdvice"
-          class="se.yrgo.advice.PerformanceTimingAdvice"/>
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+    <bean class="se.yrgo.advice.PerformanceTimingAdvice"/>
 
 </beans>

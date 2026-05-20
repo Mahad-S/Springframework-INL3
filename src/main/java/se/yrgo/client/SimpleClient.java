@@ -1,11 +1,10 @@
 package se.yrgo.client;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import se.yrgo.dataaccess.CustomerDaoJdbcTemplateImpl;
+
 import se.yrgo.services.calls.CallHandlingService;
 import se.yrgo.domain.Call;
-import java.util.ArrayList;
-import java.time.LocalDateTime;
 
 public class SimpleClient {
 
@@ -14,8 +13,9 @@ public class SimpleClient {
         ApplicationContext context =
                 new ClassPathXmlApplicationContext("application.xml");
 
+        // ✅ FIXED: use type instead of string
         CallHandlingService service =
-                (CallHandlingService) context.getBean("callHandlingService");
+                context.getBean(CallHandlingService.class);
 
         System.out.println("Spring started OK: " + service);
 
@@ -29,8 +29,5 @@ public class SimpleClient {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
-
     }
 }

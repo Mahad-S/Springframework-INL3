@@ -17,11 +17,15 @@ import se.yrgo.services.customers.CustomerNotFoundException;
 @Transactional
 public class CallHandlingServiceImpl implements CallHandlingService {
 
-    @Autowired
-    private CustomerManagementService customerService;
+    private final CustomerManagementService customerService;
+    private final DiaryManagementService diaryService;
 
     @Autowired
-    private DiaryManagementService diaryService;
+    public CallHandlingServiceImpl(CustomerManagementService customerService,
+                                   DiaryManagementService diaryService) {
+        this.customerService = customerService;
+        this.diaryService = diaryService;
+    }
 
     @Override
     public void recordCall(String customerId,
@@ -31,8 +35,8 @@ public class CallHandlingServiceImpl implements CallHandlingService {
 
         customerService.recordCall(customerId, newCall);
 
-        for (Action a : actions) {
-            diaryService.recordAction(a);
+        for (Action action : actions) {
+            diaryService.recordAction(action);
         }
     }
 }

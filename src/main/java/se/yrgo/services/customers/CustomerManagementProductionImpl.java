@@ -4,11 +4,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.context.annotation.Primary;
 
 import se.yrgo.dataaccess.CustomerDao;
 import se.yrgo.domain.Call;
 import se.yrgo.domain.Customer;
 
+@Primary
 @Service
 public class CustomerManagementProductionImpl implements CustomerManagementService {
 
@@ -59,11 +61,13 @@ public class CustomerManagementProductionImpl implements CustomerManagementServi
     }
 
     @Override
-    public void recordCall(String customerId, Call callDetails) throws CustomerNotFoundException {
+    public void recordCall(String customerId, Call callDetails)
+            throws CustomerNotFoundException {
+
         try {
             customerDao.addCall(callDetails, customerId);
-        } catch (Exception e) {
-            throw new CustomerNotFoundException("Customer not found");
+        } catch (org.springframework.dao.EmptyResultDataAccessException e) {
+            throw new CustomerNotFoundException("Customer not found: " + customerId);
         }
     }
 }

@@ -13,18 +13,7 @@
     <context:component-scan base-package="se.yrgo"/>
 
     <aop:aspectj-autoproxy/>
-
     <tx:annotation-driven/>
-
-    <bean id="callHandlingService"
-          class="se.yrgo.services.calls.CallHandlingServiceImpl"/>
-
-    <bean id="transactionManager"
-          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="dataSource"/>
-    </bean>
-
-    <bean class="se.yrgo.advice.PerformanceTimingAdvice"/>
 
     <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
         <property name="driverClassName" value="org.hsqldb.jdbcDriver"/>
@@ -36,5 +25,13 @@
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
         <property name="dataSource" ref="dataSource"/>
     </bean>
+
+    <bean id="transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean id="performanceTimingAdvice"
+          class="se.yrgo.advice.PerformanceTimingAdvice"/>
 
 </beans>

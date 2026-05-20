@@ -3,17 +3,18 @@ package se.yrgo.dataaccess;
 import java.util.List;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import se.yrgo.domain.Customer;
 import se.yrgo.domain.Call;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class CustomerDaoJdbcTemplateImpl implements CustomerDao {
 
+    @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
-    }
 
     @Override
     public List<Customer> getAllCustomers() {

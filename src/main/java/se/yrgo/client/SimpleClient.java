@@ -13,7 +13,7 @@ public class SimpleClient {
         ApplicationContext context =
                 new ClassPathXmlApplicationContext("application.xml");
 
-        // ✅ FIXED: use type instead of string
+
         CallHandlingService service =
                 context.getBean(CallHandlingService.class);
 

@@ -28,6 +28,7 @@ public class CallHandlingServiceImpl implements CallHandlingService {
     }
 
     @Override
+    @Transactional
     public void recordCall(String customerId,
                            Call newCall,
                            Collection<Action> actions)
